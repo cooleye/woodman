@@ -53,12 +53,12 @@ const birdsRes = './static/123.png';
         texture: 'girl_0.png'
     },
     ], {
-        duration: 500,
-        iterations: Infinity,
+        duration: 2000,
+        iterations: 1,
         easing: 'step-end',
     });
 
-    // girlRotate.pause()
+    girlRotate.pause()
 
 
     /*=================man=================*/
@@ -107,5 +107,13 @@ const birdsRes = './static/123.png';
     // 背景音乐
     const audio123 = document.getElementById('audio123')
 
-    audio123.play()
+   
+
+    const startGame = document.getElementById('start-game')
+    startGame.addEventListener('click',() =>{
+        startGame.style.display = 'none'
+        audio123.play()
+
+        girlRotate.play()
+    })
 }());
