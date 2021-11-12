@@ -6,34 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-        }
-
-        html,
-        body {
-            width: 100%;
-            height: 100%;
-        }
-
-        body {
-            background-color: rgb(242, 219, 170);
-        }
-
-        #adaptive {
-            width: 100%;
-            height: 100%;
-            background-color: rgb(242, 219, 170);
-            margin: 0 auto;
-        }
-    </style>
+    <link rel="stylesheet" href="./static/css/style.css">
     <script src="https://unpkg.com/spritejs@3/dist/spritejs.js"></script>
 </head>
 
 <body>
+    <button class="start-game">开始游戏</button>
     <div id="adaptive"></div>
+    <audio src="./static/audio/123.m4a" id="audio123"></audio>
+    <script src="./static/js/event.js"></script>
     <script src="./static/js/index.js"></script>
 </body>
 
