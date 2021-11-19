@@ -1,6 +1,6 @@
 
 /* ====================== 初始化事件 ===================== */
-function initEvent(manRun,man) {
+function initEvent(manRun, man, listener) {
 
     const keyboardBg = new Sprite();
     keyboardBg.attr({
@@ -57,35 +57,46 @@ function initEvent(manRun,man) {
     let moving = null;
 
     function moveY(destY) {
-        manRun.play();
-        const y = man.attr('y');
-        if (moving) moving.cancel(true);
-        moving = man.animate([{
-            y
-        },
-        {
-            y: destY
-        },
-        ], {
-            duration: Math.abs(10 * (y - destY)),
-            fill: 'forwards',
-        });
+
+        if (listener()) {
+            manRun.play();
+            const y = man.attr('y');
+            if (moving) moving.cancel(true);
+            moving = man.animate([{
+                y
+            },
+            {
+                y: destY
+            },
+            ], {
+                duration: Math.abs(10 * (y - destY)),
+                fill: 'forwards',
+            });
+        }else{
+            stopMove()
+        }
+
     }
 
     function moveX(destX) {
-        manRun.play();
-        const x = man.attr('x');
-        if (moving) moving.cancel(true);
-        moving = man.animate([{
-            x
-        },
-        {
-            x: destX
-        },
-        ], {
-            duration: Math.abs(10 * (x - destX)),
-            fill: 'forwards',
-        });
+        if (listener()) {
+            manRun.play();
+            const x = man.attr('x');
+            if (moving) moving.cancel(true);
+            moving = man.animate([{
+                x
+            },
+            {
+                x: destX
+            },
+            ], {
+                duration: Math.abs(10 * (x - destX)),
+                fill: 'forwards',
+            });
+        }else{
+            stopMove()
+        }
+
     }
 
     function stopMove() {

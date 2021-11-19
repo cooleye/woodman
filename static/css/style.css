@@ -33,3 +33,17 @@ body {
     z-index: 100;
 
 }
+
+/* 倒计时 */
+#count-down{
+    width: 200px;
+    text-align: center;
+    margin: 20px auto;
+    font-size: 100px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    margin-left: -100px;
+    z-index: 100;
+    color: red;
+}
