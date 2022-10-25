@@ -45,6 +45,14 @@ startGameButton.attr({
   font: "oblique small-caps bold 150px Arial",
 });
 layer.append(startGameButton);
+const gamedes = new Label(`123木头人，谁也不许动！`);
+
+gamedes.attr({
+  pos: [1920/2-400, 1080 / 2],
+  fillColor: "#00f",
+  font: "oblique small-caps 80px Arial",
+});
+layer.append(gamedes);
 
 const overLable = new Label("通关！");
 overLable.attr({
@@ -53,8 +61,8 @@ overLable.attr({
   font: "oblique small-caps bold 150px Arial",
 });
 
-const woodmanJsonUrl = "./static/123.json";
-const woodmanRes = "./static/123.png";
+const woodmanJsonUrl = 'https://static-66ec94bd-45d4-4b57-bbaf-8a29a25c14fb.bspapp.com/static/123.json'
+const woodmanRes = "https://static-66ec94bd-45d4-4b57-bbaf-8a29a25c14fb.bspapp.com/static/123.png";
 
 // 每次扭头的时长
 const Levels = [5500, 4000, 3000, 2000, 1500, 1000];
@@ -64,6 +72,7 @@ let LevelIndex = 0;
 let canPlayerMove = false;
 // 游戏状态，false为游戏未开始或者结束，true为游戏已开始
 let GameStatus = false;
+
 
 (async function () {
   await scene.preload([woodmanRes, woodmanJsonUrl]);
@@ -94,6 +103,7 @@ let GameStatus = false;
     sprint();
     startCountDown();
     overLable && overLable.remove();
+    gamedes && gamedes.remove()
   });
   // 倒计时
   function startCountDown() {
